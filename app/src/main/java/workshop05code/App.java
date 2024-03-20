@@ -76,7 +76,11 @@ public class App {
             while (!guess.equals("q")) {
                 System.out.println("You've guessed '" + guess+"'.");
 
-                if (wordleDatabaseConnection.isValidWord(guess)) { 
+                if(guess.length() != 4 || !guess.matches("[a-z]+")){
+                    System.out.println("Sorry. This word is NOT a-z or a 4 letters.\n");
+                }
+
+                else if (wordleDatabaseConnection.isValidWord(guess)) { 
                     System.out.println("Success! It is in the the list.\n");
                 }else{
                     System.out.println("Sorry. This word is NOT in the the list.\n");
